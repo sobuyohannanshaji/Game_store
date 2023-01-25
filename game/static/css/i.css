@@ -1,0 +1,210 @@
+
+
+    #con{
+    padding:5% 0% 5% 15%;
+    border:1;
+    color:balck;
+
+    text-align:center;
+    background-color:lightgrey;
+    }
+    #p{
+    color:black;
+    font-family:sans-serif;
+    font-style:italic;
+    }
+
+    input:focus{
+    border-color:red;
+    }
+
+    input[type=submit]:hover{
+    background-color:blue;
+    color:white;
+    font-size:15px;
+    }
+    input[type=submit]{
+    background-color:red;
+    }
+     input[type=submit]:focus{
+    background-color:white;
+    color:black;
+
+    }
+    ::placeholder{
+    font-style:arial;
+    opacity:.5;
+    text-align:center;
+    }
+    p>a{
+    color:blue;
+    }
+
+    #p>#a:hover{
+    color:red;
+    }
+    #pa{
+    font-family:sans-serif;
+    font-style:italic;
+    color:red;
+    }
+    option{
+    text-align:center;
+    }
+    .btn{
+    background-color:blue;
+    padding:10px 50px;
+    border-radius:15px;
+    }
+    .buttn{
+    background-color:black;
+    padding:10px 50px;
+    border-radius:15px;
+    color:white;
+    }
+    .buttn>a{
+    color:white;
+    }
+    .buttn:hover{
+    background-color:blue;
+    color:white;
+    font-size:15px;
+    }
+     .buttn:focus{
+    background-color:white;
+    color:black;
+
+    }
+
+    .buttn1{
+    background-color:red;
+    padding:10px 50px;
+    border-radius:15px;
+    color:white;
+    }
+    .buttn1>a{
+    color:white;
+    }
+    .buttn1:hover{
+    background-color:blue;
+    color:white;
+    font-size:15px;
+    }
+     .buttn1:focus{
+    background-color:white;
+    color:black;
+
+    }
+
+
+
+    .btn>a{
+    color:white;
+    }
+    .card{
+    text-align:center;
+    background-color:lightgrey;
+    }
+#down{
+padding:10px 100px;
+border-radius:20px;
+background-color:green;
+}
+
+#down:hover{
+color:white;
+background-color:blue;
+}
+#gamename{
+margin-left:100px;
+padding-top:0px;
+padding-bottom:10px;
+}
+#img{
+margin-left:10px;
+padding-bottom:20px;
+}
+#main {
+  flex: 1;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+}
+
+
+.review{
+position:relative;
+}
+
+.review button.submit{
+    display: block;
+    text-align: right;
+}
+.dropdown{
+	position: relative;
+	display: inline-block;
+
+    background-color:blue;
+    padding:10px 50px;
+    border-radius:15px;:
+
+}
+.drplist{
+	position: absolute;
+	display: none;
+	background-color: white;
+	min-width: 100px;
+	padding: 10px;
+	z-index: 1;
+	border-radius:15px;
+
+}
+.drplist a{
+	color: black;
+	padding: 10px 50px;
+	text-decoration: none;
+	display: flex;
+	border-radius:20px;
+
+
+}
+.drplist a:hover{
+	background-color: dimgrey;
+
+}
+.dropdown:hover .drplist{
+	display: flex;
+}
+.search{
+border-radius:20px;
+padding:10px 200px;
+margin:0 0 20px 0;
+}
+.search_button{
+background-color:black;
+color:white;
+border-radius:20px;
+padding:10px 20px;
+
+}
+.table1 {
+    --bs-table-bg: transparent;
+    --bs-table-accent-bg: transparent;
+    --bs-table-striped-color: #212529;
+    --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+    --bs-table-active-color: #212529;
+    --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+    --bs-table-hover-color: #212529;
+    --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    vertical-align: top;
+    border-color: #dee2e6
+}
+.iframe{
+background-color:grey;
+background-img:url('')
+}
+
+

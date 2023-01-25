@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+<!--/Header-->
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light stroke py-lg-0">
+                <h1><a class="navbar-brand" href="index.html">
+                        <i class="fas fa-truck-moving"></i> Game Store
+                    </a></h1>
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                    <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                    <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll">
+                        <li class="nav-item">
+
+                        </li>
+
+                    </ul>
+
+                </div>
+                <!-- toggle switch for light and dark theme -->
+                <div class="mobile-position">
+                    <nav class="navigation">
+                        <div class="theme-switch-wrapper">
+                            <label class="theme-switch" for="checkbox">
+                                <input type="checkbox" id="checkbox">
+                                <div class="mode-container">
+                                    <i class="gg-sun"></i>
+                                    <i class="gg-moon"></i>
+                                </div>
+                            </label>
+                        </div>
+                    </nav>
+                </div>
+                <!-- //toggle switch for light and dark theme -->
+            </nav>
+        </div>
+    </header>
+    <!--//Header-->
+    <!--/inner-page-->
+    <div class="inner-banner py-5" id="inner">
+        <section class="w3l-breadcrumb text-left py-sm-5 ">
+            <div class="container">
+                <div class="w3breadcrumb-gids">
+
+                </div>
+
+            </div>
+        </section>
+    </div>
+    <!--//inner-page-->
+    <!--/w3l-index3-->
+    <section class="w3l-index-about py-5" id="about2">
+
+        </section>
+        <form action="" method="post" >
+            {% csrf_token %}
+
+            <div id="con" class="container">
+                <div class="col-lg-8">
+
+                <P id="p" class="h3 text-center">Login Page</P>
+                    <hr>
+            <input type="text" id="uname" class="form-control" name="uname" placeholder="Enter username"autocomplete="off" required></br>
+
+
+            <input type="password" id="pass" class="form-control" name="pass" placeholder="Enter password" required></br>
+
+                <input type="submit" class="form-control" value="Login"></br>
+                    <p id="pa" >Don't have an account?&nbsp <a id="a" href="{% url 'register' %}">Sign Up</a></p>
+
+            {% if errors %}
+{% for error in errors %}
+ <P class="h3 text-center">{{ error}}</p>
+         {% endfor %}
+{% endif %}
+                    </div>
+                </div>
+            <br><br><br><br>
+        </form>
+
+{% endblock %}
+
+

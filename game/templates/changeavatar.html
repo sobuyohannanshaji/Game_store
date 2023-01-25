@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+<!--/Header-->
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light stroke py-lg-0">
+                <h1><a class="navbar-brand" href="index.html">
+                        <i class="fas fa-truck-moving"></i> Game Booking
+                    </a></h1>
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                    <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                    <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll">
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="{% url 'homeadmin'  %}">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- toggle switch for light and dark theme -->
+                <div class="mobile-position">
+                    <nav class="navigation">
+                        <div class="theme-switch-wrapper">
+                            <label class="theme-switch" for="checkbox">
+                                <input type="checkbox" id="checkbox">
+                                <div class="mode-container">
+                                    <i class="gg-sun"></i>
+                                    <i class="gg-moon"></i>
+                                </div>
+                            </label>
+                        </div>
+                    </nav>
+                </div>
+                <!-- //toggle switch for light and dark theme -->
+            </nav>
+        </div>
+    </header>
+    <!--//Header-->
+    <!--/inner-page-->
+    <div class="inner-banner py-5">
+        <section class="w3l-breadcrumb text-left py-sm-5 ">
+            <div class="container">
+                <div class="w3breadcrumb-gids">
+
+                </div>
+
+            </div>
+        </section>
+    </div>
+    <!--//inner-page-->
+    <!--/w3l-index3-->
+    <section class="w3l-index-about py-5" id="about2">
+
+        </section>
+
+ <form action="" method="post" enctype="multipart/form-data" >
+            {% csrf_token %}
+
+            <div  class="container mt-5">
+                <div class="form-group  text-center">
+                    <table class="table ">
+            {% if image %}
+                        <tr>
+                            <td><label for="file1">Change File:</label><br><br></td></tr>
+                            <tr>
+
+                            <td>
+                    <input type="file" id="file1"  class="form-control" name="file" accept=".png,.jpeg,.jpg" required></br></td>
+                        </tr>
+                 <tr><td>
+                     <input type="submit" value="update" class="form-control">
+                 </td></tr>{% endif %}
+                        {% if file %}
+                        <tr>
+                            <td><label for="file2">Change File:</label><br><br></td></tr>
+                            <tr>
+
+                            <td>
+                    <input type="file" id="file2"  class="form-control" name="file" accept=".zip"  required></br></td>
+                        </tr>
+                 <tr><td>
+                     <input type="submit" value="update" class="form-control">
+                 </td></tr>{% endif %}
+                        {% if v1 %}
+                        <tr>
+                            <td><label for="file3">Change File:</label><br><br></td></tr>
+                            <tr>
+
+                            <td>
+                    <input type="file" id="file3"  class="form-control" name="file"  accept=".mp4,.mkv" required></br></td>
+                        </tr>
+                 <tr><td>
+                     <input type="submit" value="update" class="form-control">
+                 </td></tr>{% endif %}
+                        {% if v2 %}
+                        <tr>
+                            <td><label for="file4">Change File:</label><br><br></td></tr>
+                            <tr>
+
+                            <td>
+                    <input type="file" id="file4"  class="form-control" name="file" accept=".mp4,.mkv"  required></br></td>
+                        </tr>
+                 <tr><td>
+                     <input type="submit" value="update" class="form-control">
+                 </td></tr>{% endif %}
+                        {% if avatar %}
+                        <tr>
+                            <td><label for="file5">Change File:</label><br><br></td></tr>
+                            <tr>
+
+                            <td>
+                    <input type="file" id="file5"  class="form-control" name="file" accept=".jpg,.jpeg,.png" required></br></td>
+                        </tr>
+                 <tr><td>
+                     <input type="submit" value="update" class="form-control">
+                 </td></tr>{% endif %}
+
+
+                    </table>
+                    </div></div>
+ </form><br><br><br><br>
+{% endblock %}
+</body>
+</html>

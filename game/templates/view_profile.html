@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<!--/Header-->
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light stroke py-lg-0">
+                <h1><a class="navbar-brand" href="index.html">
+                        <i class="fas fa-truck-moving"></i> Game Store
+                    </a></h1>
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                    <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                    <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll">
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="{% url 'home' objectlist.id %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+
+                        </li>
+                        <li class="nav-item" >
+                            <a class="nav-link active" href="{% url 'profile' objectlist.id %}">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- toggle switch for light and dark theme -->
+                <div class="mobile-position">
+                    <nav class="navigation">
+                        <div class="theme-switch-wrapper">
+                            <label class="theme-switch" for="checkbox">
+                                <input type="checkbox" id="checkbox">
+                                <div class="mode-container">
+                                    <i class="gg-sun"></i>
+                                    <i class="gg-moon"></i>
+                                </div>
+                            </label>
+                        </div>
+                    </nav>
+                </div>
+                <!-- //toggle switch for light and dark theme -->
+            </nav>
+        </div>
+    </header>
+    <!--//Header-->
+    <!--/inner-page-->
+    <div class="inner-banner py-5">
+        <section class="w3l-breadcrumb text-left py-sm-5 ">
+            <div class="container">
+                <div class="w3breadcrumb-gids">
+
+                </div>
+
+            </div>
+        </section>
+    </div>
+    <!--//inner-page-->
+    <!--/w3l-index3-->
+
+<div style="margin:10%  30% ">
+{% csrf_token %}
+{% if objectlist %}
+<table class="table table-white table-bordered text-center">
+
+       <tr><td colspan="2"><br><center><img src="{{ objectlist.avatar.url }}" class="rounded-circle" width="150px" height="150px"></center>
+       <center><a href="{%url 'changepro' objectlist.id %}">Change Profile</a></center>
+       </td> </tr>
+
+    <tr>
+        <th>Name:</th>
+        <td>{{ objectlist.name }}</td>
+    </tr>
+    <tr>
+        <th>Gender:</th>
+        <td>{{ objectlist.gender }}</td>
+    </tr>
+    <tr>
+        <th>E-mail:</th>
+        <td>{{ objectlist.email }}</td>
+    </tr>
+    <tr>
+        <td><a href="{% url 'update_profile' objectlist.id %}">Edit Profile&nbsp;&nbsp;</a></td>
+        <td><a href="{% url 'update_user' objectlist.id %}">Change Password</a></td>
+    </tr>
+</table>
+</div>
+
+{% endif %}
+{% endblock %}

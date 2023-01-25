@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<!--/Header-->
+<header id="site-header" class="fixed-top" xmlns="http://www.w3.org/1999/html">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light stroke py-lg-0">
+                <h1><a class="navbar-brand" href="index.html">
+                        <i class="fas fa-truck-moving"></i> Game Store
+                    </a></h1>
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                    <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                    <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'home' user %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+
+                        </li>
+                        <li class="nav-item" >
+                            <a class="nav-link " href="{% url 'profile' user%}">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- toggle switch for light and dark theme -->
+                <div class="mobile-position">
+                    <nav class="navigation">
+                        <div class="theme-switch-wrapper">
+                            <label class="theme-switch" for="checkbox">
+                                <input type="checkbox" id="checkbox">
+                                <div class="mode-container">
+                                    <i class="gg-sun"></i>
+                                    <i class="gg-moon"></i>
+                                </div>
+                            </label>
+                        </div>
+                    </nav>
+                </div>
+                <!-- //toggle switch for light and dark theme -->
+            </nav>
+        </div>
+    </header>
+    <!--//Header-->
+    <!--/inner-page-->
+    <div class="inner-banner py-5">
+        <section class="w3l-breadcrumb text-left py-sm-5 ">
+            <div class="container">
+                <div class="w3breadcrumb-gids">
+
+                </div>
+
+            </div>
+        </section>
+    </div>
+    <!--//inner-page-->
+    <!--/w3l-index3-->
+
+
+     <div class="container my-5">
+
+<form method="post" id="task-form">
+    {% csrf_token %}
+    {% if game  %}
+    <div class="row my-3">
+    <div  class="col-md-12">
+        <img  src="{{ game.game_avatar.url }}" width="1200px" height="500px">
+    </div></div>
+   <div class="row">
+    <div  class="col-md-4">
+        <img  src="{{ game.game_images.url }}" width="350px" height="200px">
+    </div>
+    <div class="col-md-4">
+        <video  src="{{ game.game_video1.url }}" width="350px" height="200px" controls ></video>
+    </div>
+        <div class="col-md-4">
+        <video  src="{{ game.game_video2.url }}" width="350px" height="200px" controls ></video>
+    </div>
+
+    <div class="row my-5">
+        <div class="col-md-6">
+            <h1 id="gamename" class="float-starter">{{ game.game_name }}</h1>
+        </div>
+        <div class="col-md-6">
+            {% if game.game_amt == '0' %}
+            <button id="down" class="float-starter"><a href="{{ game.game_file.url }}" download>Download</a></button>
+            {% else %}
+            <button id="down" class="float-starter"><a href="{% url 'payment' game.id %}">${{ game.game_amt }}</a></button>
+            {% endif %}
+        </div>
+    </div>
+
+    {% endif %}</div>
+    <div class="row">
+        <div class="col-md-9"></div>
+    </div>
+<div id="review " class="ms-5 p-5">
+        <table  class=" table table-bordered ms-5" style="text-align:center;align-item:center;">
+ <tr>
+     <td colspan="2" class=" py-2" >
+         <h3 >Reviews</h3>
+
+     </td>
+ </tr> {% if  rev %}
+ {% for r in rev  %}
+            <tr>
+                <td>
+            <table  class="table1"  >
+
+            <tr >
+            <td class="px-5 py-2">
+              <p style="font-size:15px;font-style:italic;">{{ r.name }}</p>
+            </td>
+            {% if  r.name.id == user  %}
+            <td class="px-5 py-2"><a href="{% url 'deletereview' r.id %}" >Delete</a>
+               </td>
+
+
+        </tr>{% endif %}
+        <tr>
+            <td class="px-5 py-2" colspan="2">
+                <p style="font-size:20px;;">{{ r.review }}</p>
+            </td>
+        </tr>
+</table></td></tr>
+
+
+{% endfor %}
+{% endif %}
+
+        </table><br><br>
+
+        <button class="buttn"><a href="{%url 'reviews' game.id %}" >Add your review</a></button>
+</form>
+
+</div></div>
+
+
+{%  endblock %}

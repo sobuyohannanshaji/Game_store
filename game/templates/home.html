@@ -1,0 +1,194 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Game Booking </title>
+    <!-- google fonts -->
+    <link href="//fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <!-- Template CSS -->
+
+
+     {% load static %}
+        <link rel="stylesheet" href="{% static 'css/style-starter.css' %}">
+    <link rel="stylesheet" href="{% static 'css/i.css' %}">
+</head>
+
+<body>
+
+
+<!--/Header-->
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light stroke py-lg-0">
+                <h1><a class="navbar-brand" href="index.html">
+                        <i class="fas fa-truck-moving"></i> Game Store
+                    </a></h1>
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                    <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                    <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll nav-tabs nav-justified">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'home' user.id %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+
+                        </li>
+                        <li class="nav-item" >
+                            <a class="nav-link " href="{% url 'profile' user.id %}">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- toggle switch for light and dark theme -->
+                <div class="mobile-position">
+                    <nav class="navigation">
+                        <div class="theme-switch-wrapper">
+                            <label class="theme-switch" for="checkbox">
+                                <input type="checkbox" id="checkbox">
+                                <div class="mode-container">
+                                    <i class="gg-sun"></i>
+                                    <i class="gg-moon"></i>
+                                </div>
+                            </label>
+                        </div>
+                    </nav>
+                </div>
+                <!-- //toggle switch for light and dark theme -->
+            </nav>
+        </div>
+    </header>
+    <!--//Header-->
+    <!--/inner-page-->
+    <div class="inner-banner py-5">
+        <section class="w3l-breadcrumb text-left py-sm-5 ">
+            <div class="container">
+                <div class="w3breadcrumb-gids">
+
+                </div>
+
+            </div>
+        </section>
+    </div>
+    <!--//inner-page-->
+    <!--/w3l-index3-->
+    <section class="w3l-index-about py-5" id="about2">
+
+        </section>
+
+
+
+<form method="post">
+    {% csrf_token %}
+    {% if user  %}
+    <div class="row mx-5">
+          <center><input type="text" name="s" class="search" placeholder="Search here.." autocomplete="off"><input type="submit" value="search" class="search_button"></center>
+        <br><br>
+        <br><br><br><br>
+{% if objlist  %}
+        {% for category in objlist %}
+            <div class="col-lg-2 ">
+                <div class="card" style="width: 13rem;">
+                    <div class="card-body ">
+
+                            <img src="{{category.game_avatar.url}}" width="150" height="150" class="prod-size"><br>
+                            <h4 class="card-title"><a href="{% url 'gamepage' category.id %}" style="color:black;">{{ category.game_name }}</h4>
+                            {% if category.game_amt == '0' %}
+                            <button class="buttn"><a href="{{category.game_file.url}}" download>Download</a></button>
+                            {% else %}
+                            <button class="buttn"><a href="{% url 'payment' category.id %}">${{ category.game_amt }}</a></button>
+                            {% endif %}
+
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+                </div>
+
+<br><br>
+
+{% endif %}{% endif %}
+</form>
+    <!--/footer-9-->
+    <footer class="w3l-footer9">
+        <section class="footer-inner-main py-5">
+            <div class="container py-md-4">
+                <div class="right-side">
+                    <div class="row footer-hny-grids sub-columns">
+                        <div class="col-lg-4 sub-one-left pe-lg-5">
+                            <h2><a class="navbar-brand" href="index.html">
+                                    <i class="fas fa-truck-moving"></i> Game Store
+                                </a></h2>
+                            <div>
+<br><br>
+                            <form method="post">
+                                {% csrf_token %}
+                                    {% if user %}
+
+                                    <button class="buttn1"><a href="{%url 'feedbacks' user.id %}" >Add your feedbacks</a></button>
+                                    {% endif %}
+                                </form>
+
+
+                            </div>
+
+                            <div class="columns-2 mt-4 pt-lg-2">
+                                <ul class="social">
+                                    <li><a href="#facebook"><span class="fab fa-facebook-f"></span></a>
+                                    </li>
+                                    <li><a href="#linkedin"><span class="fab fa-linkedin-in"></span></a>
+                                    </li>
+                                    <li><a href="#twitter"><span class="fab fa-twitter"></span></a>
+                                    </li>
+                                    <li><a href="#google"><span class="fab fa-google-plus-g"></span></a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                       <div class="below-section mt-lg-5 pt-lg-4">
+                    <div class="copyright-footer">
+                        <p class="copyright-column">© 2022 Game Store.All rights reserved. Design by <a href="https://w3layouts.com/" target="_blank">
+                                Sobu & Arun</a></p>
+
+                        <ul class="footer-w3list text-right">
+                            <li><a href="#url">Privacy Policy</a>
+                            </li>
+                            <li><a href="#url">Terms &amp; Conditions</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+    </footer>
+
+
+
+    {% load static %}
+    <script src="{% static 'js/jquery-3.3.1.min.js'%}"></script>
+    <script src="{% static 'js/theme-change.js'%}"></script>
+    <!-</search-->
+    <script src="a{% static 'js/modernizr.custom.js'%}"></script>
+    <script src="{% static 'js/classie.js'%}"></script>
+    <script src="{% static 'js/demo1.js'%}"></script>
+
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+
+
+
+</body>
+</html>

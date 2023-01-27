@@ -1,10 +1,9 @@
 {
-  "version": 2,
   "builds": [
     {
       "src":"gamebooking/wsgi.py",
       "use": "@vercel/python",
-      "config": { "maxLambdaSize": "150mb","runtime": "python3.8" }
+      "config": { "maxLambdaSize": "15mb","runtime": "python3.8" }
     },
     {
       "src":"build_files.sh",
@@ -12,11 +11,7 @@
       "distDir": { "staticFiles._build" }
     }
   ],
-  "routers": [
-    {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
-    },
+  "routes": [
     {
       "src": "/(.*)",
       "dest": "gamebooking/wsgi.py"

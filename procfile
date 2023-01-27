@@ -1,1 +1,0 @@
-web: gunicorn gamebooking.wsgi --log-file -

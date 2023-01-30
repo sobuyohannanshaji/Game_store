@@ -85,7 +85,8 @@
         <td>{{ objectlist.email }}</td>
     </tr>
     <tr>
-        <td><a href="{% url 'update_profile' objectlist.id %}">Edit Profile&nbsp;&nbsp;</a></td>
+        <td><a href="{% url 'update_profile' objectlist.id %}" onclick="return confirm('Do you want to update ?')">Edit Profile&nbsp;&nbsp;</a></td>
+
         <td><a href="{% url 'update_user' objectlist.id %}">Change Password</a></td>
     </tr>
 </table>

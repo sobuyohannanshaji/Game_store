@@ -128,10 +128,11 @@
                              <P><iframe src="{{ category.game_file.url }}" width="100" height="100"></iframe><img src="{{category.game_images.url}}" width="100" height="100"></P>
                         </td>
                          <td>
-                           <a href="{%url 'editgame' category.id %}">Edit</a>
+                           <a href="{%url 'editgame' category.id %}" onclick="return confirm('Are you sure want to Update ?')">Edit</a>
                         </td>
                         <td>
-                            <a href="{%url 'deletegame' category.id %}">Delete</a>
+
+                            <a  href="{%url 'deletegame' category.id %}" onclick="return confirm('Are you sure want to delete ?')" >Delete</a>
                         </td>
 
                     </tr>

@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-s)!!*1x%dbd%sf(x2lu%2-y=1s#%3x*0j1dmx_aiz59kvnd*9u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['gamestore-production-119e.up.railway.app']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'gamebooking.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': str(BASE_DIR / "db.sqlite3"),
     }
 }
 
